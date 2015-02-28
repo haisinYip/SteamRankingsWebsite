@@ -7,12 +7,11 @@
 
   <link type="text/css" rel='stylesheet' href="../assets/css/lib/normalize.css" th:href="@{/assets/css/lib/normalize.css}" />
 
-  <link type="text/css" rel='stylesheet' href="../assets/css/leaderboard.css" th:href="@{/assets/css/leaderboard.css}" />
+  <link type="text/css" rel='stylesheet' href="../assets/css/gamelist.css" th:href="@{/assets/css/leaderboard.css}" />
 
   <script src="../assets/js/lib/jquery.1.10.2.min.js" th:src="@{/assets/js/lib/jquery.1.10.2.min.js}"></script>
 
   <!-- // <script src="../assets/js/leaderboard.js" th:src="@{/assets/js/leaderboard.js}"></script> -->
-  
 
   <title>Rank My Steam</title>
 </head>
@@ -32,7 +31,6 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="./leaderboard.html">Leaderboard</a></li>
             <li class="active"><a href="./gameslist.html">Games</a></li>
-            <li class="active"><a href="./countries.html">Countries</a></li>            
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -40,28 +38,24 @@
 
     <div class="container">     
       <div class="starter-template">
-        <p>Overall Leaderboard</p>
-        <table id="leaderboard-table">
+        <h1>Steam Games</h1>
+        <table id="games-table">
           <thead>
             <tr>
-              <th>Rank</th>
-              <th>Name</th>
-              <th><a th:href="@{'/leaderboard'}"># of achievements</a></th>
-              <th><a th:href="@{'/leaderboard?type=completionrate'}">Average Completion Rate</a></th>
-              <th><a th:href="@{'/leaderboard?type=playtime'}">Total Play Time</a></th>
-              <th>Country</th>
+              <th>Logo</th>
+              <th>Game</th>
+              <th>Top Player</th>
+              <th>Completion Rate</th>
             </tr>
           </thead>
-          <tbody>
-            <tr th:each="rankentry : ${rankentries}">
-              <th th:text="${rankentry.rankNumber}">0</th>
-              <td><a th:text="${rankentry.name}" th:href="@{'/profile?id=' + ${rankentry.id64}}" href=""></a></td>
-              <td th:text="${rankentry.achievementsTotal}">0</td>
-              <td th:text="${rankentry.completionRate}">100</td>
-              <td th:text="${rankentry.totalPlayTime}">100</td>
-              <td><img th:src="@{${rankentry.countryCode}}" /></td>
-            </tr>
-          </tbody>
+			<tbody>
+		  		<tr th:each="game : ${games}">
+      			<td><img th:src="@{${game.logoUrl}}" /></td>
+      			<td><a th:text="${game.name}" th:href="@{'/game?id=' + ${game.id}}" href=""></a></td>        
+      			<td><a th:text="${game.player}" th:href="@{'/profile?id=' + ${game.id64}}" href=""></a></td>
+      			<td th:text="${game.completionRate}" />     
+		  		</tr>
+			</tbody>
         </table>
         <!-- <button onclick="addRow()">Add row</button>         -->
       </div>

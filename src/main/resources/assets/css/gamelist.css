@@ -26,7 +26,7 @@ td, th {
 		line-height: 1;
 	}
 th {
-    background-color: #31bc86;
+    background-color: #e53c3c;
     font-weight: bold;
     color: #fff;
     white-space: nowrap;
@@ -39,30 +39,9 @@ tbody tr:nth-child(2n-1) {
     transition: all .125s ease-in-out;
 }
 tbody tr:hover {
-    background-color: rgba(129,208,177,.3);
+    background-color: rgba(208,53,53,.25);
 }
 
-/* hyperlink */
-th a:link {
-    color:#fff;
-    background-color:transparent;
-    text-decoration:none;
-}
-th a:visited {
-    color:#fff;
-    background-color:transparent;
-    text-decoration:none;
-}
-th a:hover {
-    color:#fff;
-    background-color:transparent;
-    text-decoration:underline;
-}
-th a:active {
-    color:#fff;
-    background-color:transparent;
-    text-decoration:underline;
-}
 
 /* For appearance */
 .sticky-wrap {

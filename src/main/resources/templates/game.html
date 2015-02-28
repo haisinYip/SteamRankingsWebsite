@@ -6,7 +6,7 @@
 
   <link type="text/css" rel='stylesheet' href="../assets/css/lib/normalize.css" th:href="@{/assets/css/lib/normalize.css}" />
 
-  <link type="text/css" rel='stylesheet' href="../assets/css/game.css" th:href="@{/assets/css/game.css}" />
+  <link type="text/css" rel='stylesheet' href="../assets/css/gamelist.css" th:href="@{/assets/css/game.css}" />
 
   <title>Rank My Steam</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -27,17 +27,34 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="./leaderboard.html">Leaderboard</a></li>
+            <li class="active"><a href="./gameslist.html">Games</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
     <div class="container">
       <div class="starter-template">
-        <p> hello </p>
-      <!-- <img th:src="@{${logoUrl}}" /> -->
-        <p th:text="${name}" />
+        <img th:src="@{${game_logo_Url}}" />
+        <p th:text="${game_name}" />
+        <p th:text="${total_players}" />
+        <p th:text="${hours_played}" />
+        <p th:text="${avg_completion_rate}" />
+	
+	<h1>Top Players</h1>
+	<table id="leaderboard-table">
+		<tbody>
+		  <tr th:each="playerentry : ${playerentries}">
+              <td><a th:text="${playerentry.name}" th:href="@{'/profile?id=' + ${playerentry.id64}}" href=""></a></td>
+              <td th:text="${playerentry.achievementsTotal}"></td>
+              <td th:text="${playerentry.completionRate}"></td>
+              <td><img th:src="@{${playerentry.countryCode}}" /></td>    
+		  </tr>
+		</tbody>
+	  </table>
+	  
       </div>
     </div>
+    
   <!-- /.container -->
     <!-- Bootstrap core JavaScript
     ================================================== -->

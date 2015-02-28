@@ -42,27 +42,6 @@ tbody tr:hover {
     background-color: rgba(129,208,177,.3);
 }
 
-/* hyperlink */
-th a:link {
-    color:#fff;
-    background-color:transparent;
-    text-decoration:none;
-}
-th a:visited {
-    color:#fff;
-    background-color:transparent;
-    text-decoration:none;
-}
-th a:hover {
-    color:#fff;
-    background-color:transparent;
-    text-decoration:underline;
-}
-th a:active {
-    color:#fff;
-    background-color:transparent;
-    text-decoration:underline;
-}
 
 /* For appearance */
 .sticky-wrap {
